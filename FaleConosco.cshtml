@@ -1,0 +1,30 @@
+﻿@model PetEsperanca.Models.ListaFaleConoscoModel
+@{
+    ViewBag.Title = "FaleConosco";
+}
+
+<h2>Fale Conosco</h2>
+@using (Html.BeginForm("FaleConosco", "FaleConosco", FormMethod.Post, new { id = "formulario" }))
+{
+    <div class="row form-group">
+        <div class="col-md-6 col-sm-6">
+            @Html.LabelFor(m => m.faleConoscoModel.Nome, new { @class = " col-md-3 control-label " })
+            @Html.TextBoxFor(m => m.faleConoscoModel.Nome, new { @class = "form-control" })
+
+
+            @Html.LabelFor(m => m.faleConoscoModel.Email, new { @class = " col-md-3 control-label " })
+            @Html.TextBoxFor(m => m.faleConoscoModel.Email, new { @class = "form-control" })
+
+            @Html.LabelFor(m => m.faleConoscoModel.Telefone, new { @class = " col-md-3 control-label " })
+            @Html.TextBoxFor(m => m.faleConoscoModel.Telefone, new { @class = "form-control" })
+
+            @Html.LabelFor(m => m.faleConoscoModel.Mensagem, new { @class = " col-md-3 control-label " })
+            @Html.TextBoxFor(m => m.faleConoscoModel.Mensagem, new { @class = "form-control" })
+        </div>
+
+        <div class="input-group-prepend">
+            <input type="submit" onclick="submitForm(1)" class="btn btn-success" value="Enviar Mensagem" />
+        </div>
+    </div>
+}
+

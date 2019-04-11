@@ -1,0 +1,163 @@
+﻿@model PetEsperanca.Models.ListaSouProtetorModel
+@{
+    ViewBag.Title = "SouProtetor";
+}
+
+<style>
+
+    .form-group {
+        margin-bottom: 5px;
+    }
+
+    .show {
+        display: block !important;
+    }
+
+    .hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .invisible {
+        visibility: hidden;
+    }
+
+
+    .grid {
+        width: 100%;
+    }
+</style>
+
+<h2>Sou Protetor</h2>
+
+@using (Html.BeginForm("SouProtetor", "SouProtetor", FormMethod.Post, new { id = "formulario" }))
+{
+    <div class="row form-group">
+        <div class="col-md-6 col-sm-6">
+            @Html.LabelFor(m => m.souProtetorModel.NomeDoAnimal, new { @class = " col-md-3 control-label " })
+            @Html.TextBoxFor(m => m.souProtetorModel.NomeDoAnimal, new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 col-sm-6">
+            @Html.LabelFor(m => m.souProtetorModel.Cidade, new { @class = " col-md-3 control-label " })
+            @Html.TextBoxFor(m => m.souProtetorModel.Cidade, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-6 col-sm-6">
+            @Html.LabelFor(Model => Model.souProtetorModel.Porte, new { @class = " col-md-3 control-label " })
+            @{
+                List<SelectListItem> Porte = new List<SelectListItem>();
+                Porte.Add(new SelectListItem
+                {
+                    Text = "Exemplo1",
+                    Value = "Exemplo1"
+                });
+                Porte.Add(new SelectListItem
+                {
+                    Text = "Exemplo2",
+                    Value = "Exemplo2",
+                });
+                Porte.Add(new SelectListItem
+                {
+                    Text = "Exemplo3",
+                    Value = "Exemplo3"
+                });
+            }
+
+            @Html.DropDownListFor(model => model.souProtetorModel.Porte, Porte, "-- Selecione --")
+        </div>
+        <div class="col-md-6 col-sm-6">
+            @Html.LabelFor(Model => Model.souProtetorModel.Vacinado, new { @class = " col-md-3 control-label " })
+            @{
+                List<SelectListItem> Vacinado = new List<SelectListItem>();
+                Vacinado.Add(new SelectListItem
+                {
+                    Text = "Sim",
+                    Value = "1"
+                });
+                Vacinado.Add(new SelectListItem
+                {
+                    Text = "Não",
+                    Value = "2",
+                });
+            }
+
+            @Html.DropDownListFor(model => model.souProtetorModel.Vacinado, Vacinado, "-- Selecione --")
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-6 col-sm-6">
+            @Html.LabelFor(Model => Model.souProtetorModel.DeRaca, new { @class = " col-md-3 control-label " })
+            @{
+                List<SelectListItem> DeRaca = new List<SelectListItem>();
+                DeRaca.Add(new SelectListItem
+                {
+                    Text = "Sim",
+                    Value = "1"
+                });
+                DeRaca.Add(new SelectListItem
+                {
+                    Text = "Não",
+                    Value = "2",
+                });
+            }
+
+            @Html.DropDownListFor(model => model.souProtetorModel.DeRaca, DeRaca, "-- Selecione --")
+        </div>
+        <div class="col-md-6 col-sm-6">
+            @Html.LabelFor(m => m.souProtetorModel.Cor, new { @class = " col-md-3 control-label " })
+            @Html.TextBoxFor(m => m.souProtetorModel.Cor, new { @class = "form-control" })
+        </div>        
+        <div class="row form-group">
+            <div class="col-md-6 col-sm-6">
+                @Html.LabelFor(m => m.souProtetorModel.SeSimQual, new { @class = " col-md-3 control-label " })
+                @Html.TextBoxFor(m => m.souProtetorModel.SeSimQual, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            @Html.LabelFor(Model => Model.souProtetorModel.Castrado, new { @class = " col-md-3 control-label " })
+            @{
+                List<SelectListItem> Castrado = new List<SelectListItem>();
+                Castrado.Add(new SelectListItem
+                {
+                    Text = "Sim",
+                    Value = "1"
+                });
+                Castrado.Add(new SelectListItem
+                {
+                    Text = "Não",
+                    Value = "2",
+                });
+            }
+
+            @Html.DropDownListFor(model => model.souProtetorModel.Castrado, Castrado, "-- Selecione --")
+        </div>
+        <div class="col-md-6 col-sm-6">
+            @Html.LabelFor(Model => Model.souProtetorModel.Idade, new { @class = " col-md-3 control-label " })
+            @{
+                List<SelectListItem> Idade = new List<SelectListItem>();
+                Idade.Add(new SelectListItem
+                {
+                    Text = "1 ano",
+                    Value = "1"
+                });
+                Idade.Add(new SelectListItem
+                {
+                    Text = "2 anos",
+                    Value = "2",
+                });
+                Idade.Add(new SelectListItem
+                {
+                    Text = "3 anos",
+                    Value = "3"
+                });
+            }
+
+            @Html.DropDownListFor(model => model.souProtetorModel.Idade, Idade, "-- Selecione --")
+        </div>
+    </div>  
+    <div class="input-group-prepend">
+        <input type="submit" onclick="submitForm(1)" class="btn btn-success" value="Salvar" />
+    </div>
+ }
+
